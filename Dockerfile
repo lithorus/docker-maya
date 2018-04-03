@@ -14,6 +14,8 @@ RUN yum update -y && yum install -y \
     elfutils \
     gcc \
     gcc-c++ \
+    zlib-devel \
+    python-jinja2 \
     gstreamer-plugins-base.x86_64 \
     gamin \
     git \
