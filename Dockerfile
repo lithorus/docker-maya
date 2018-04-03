@@ -1,6 +1,31 @@
-FROM mottosso/mayabase-centos
+FROM centos:centos7.2.1511
  
-MAINTAINER marcus@abstractfactory.io
+MAINTAINER lithorus@gmail.com
+ 
+RUN yum update -y && yum install -y \
+    nano \
+    csh \
+    libXp \
+    libXmu \
+    libXpm \
+    libXi \
+    libtiff \
+    libXinerama \
+    elfutils \
+    gcc \
+    gstreamer-plugins-base.x86_64 \
+    gamin \
+    git \
+    mesa-utils \
+    mesa-libGL-devel \
+    tcsh \
+    xorg-x11-server-Xorg \
+    xorg-x11-server-Xvfb \
+    wget && \
+    yum groupinstall -y "X Window System" && \
+    yum clean all
+
+ENV LIBQUICKTIME_PLUGIN_DIR=/usr/autodesk/maya/lib
  
 # Download and unpack distribution first, Docker's caching
 # mechanism will ensure that this only happens once.
