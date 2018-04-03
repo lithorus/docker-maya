@@ -16,6 +16,7 @@ RUN yum update -y && yum install -y \
     gcc-c++ \
     zlib-devel \
     python-jinja2 \
+    python-devel \
     gstreamer-plugins-base.x86_64 \
     gamin \
     git \
@@ -27,6 +28,17 @@ RUN yum update -y && yum install -y \
     wget && \
     yum groupinstall -y "X Window System" && \
     yum clean all
+
+RUN yum update -y && yum install -y \
+    gcc-c++ \
+    epel-release && \
+    yum clean all
+
+RUN yum update -y && yum install -y \
+    cmake3 && \
+    yum clean all
+
+RUN ln -sf /usr/bin/cmake3 /usr/local/bin/cmake
 
 ENV LIBQUICKTIME_PLUGIN_DIR=/usr/autodesk/maya/lib
  
