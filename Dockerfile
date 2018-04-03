@@ -13,6 +13,7 @@ RUN yum update -y && yum install -y \
     libXinerama \
     elfutils \
     gcc \
+    gcc-c++ \
     gstreamer-plugins-base.x86_64 \
     gamin \
     git \
